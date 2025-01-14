@@ -1,4 +1,4 @@
-# E-commerce Project - Version 1
+# E-commerce Project 
 
 ## Table of Contents
 - [Description](#description)
@@ -22,6 +22,7 @@ This E-commerce web application provides a platform for users to browse and purc
 ## Technologies Used
 - **Frontend:**
   - React
+  - Google OAuth
   - Redux for state management
   - HTML5, CSS3, JavaScript
   - Bootstrap or Material-UI for styling
