@@ -1,0 +1,65 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash') %>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card border-0 shadow-lg position-relative overflow-hidden">
+                <!-- Background Image -->
+                <div class="bg-image position-absolute top-0 start-0 w-100 h-100" 
+                     style="background-image: url('https://cdn.pixabay.com/photo/2019/11/05/00/25/cafe-bar-4602458_1280.jpg'); 
+                            background-size: cover; 
+                            background-position: center;">
+                </div>
+                
+                <!-- Content -->
+                <div class="card-body position-relative bg-white bg-opacity-75 p-4">
+                    <h2 class="text-center mb-4 fw-bold">Welcome Back!</h2>
+                    
+                    <form action="/login" method="POST">
+                        <div class="mb-3">
+                            <input type="text" 
+                                   class="form-control rounded-pill py-2 px-3" 
+                                   name="username" 
+                                   id="username" 
+                                   placeholder="Username" 
+                                   required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" 
+                                   class="form-control rounded-pill py-2 px-3" 
+                                   name="password" 
+                                   id="password" 
+                                   placeholder="Password" 
+                                   required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" 
+                                    class="btn btn-primary btn-lg rounded-pill">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <hr>
+                        <p class="text-muted mb-2">Or login with</p>
+                        <a href="/auth/google" 
+                           class="btn btn-danger btn-lg rounded-pill">
+                            <i class="fab fa-google me-2"></i> Login with Google
+                        </a>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <p class="mb-0">Don't have an account? 
+                            <a href="/register" class="text-decoration-none">Sign up here</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

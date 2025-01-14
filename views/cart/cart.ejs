@@ -1,0 +1,63 @@
+
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+<%- include('../partials/flash') %>
+
+<section class="container my-5">
+    <h1 class="display-6 text-center text-opacity-75">My Cart</h1>
+    <hr class="my-2" style="width: 150px; border-color: #958585;">
+
+    <div class="row">
+        <div class="col-lg-8">
+            <% if (user.cart.length === 0) { %>
+                <div class="alert alert-warning" role="alert">
+                    Your cart is currently empty. Start adding items!
+                </div>
+            <% } else { %>
+                <% for (let item of user.cart) { %>
+                    <div class="card mx-auto m-3 border shadow-sm" style="max-width: 500px;">
+                        <div class="row g-0">
+                            <div class="col-4">
+                                <img class="img-fluid rounded-start" src="<%= item.img %>" alt="<%= item.name %>">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= item.name %></h5>
+                                    <p class="card-text"><%= item.desc %></p>
+                                    <p class="card-text"><strong>Price: ₹<%= item.price %></strong></p>
+                                    <form action="/cart/remove/<%= item.id %>" method="POST" class="d-inline-block">
+                                        <button class="btn btn-danger btn-sm">Remove</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+
+        <div class="col-lg-4">
+            <h4 class="text-center">Order Summary</h4>
+            <ul class="list-group">
+                <% for (let item of user.cart) { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><%= item.name %></span>
+                        <span>₹<%= item.price %></span>
+                    </li>
+                <% } %>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>Total Amount:</strong>
+                    <strong>₹<%= totalAmount %></strong>
+                </li>
+            </ul>
+            <div class="text-center mt-3">
+                <a href="/payment/<%= user._id %>" class="btn btn-success">Checkout</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/footer') %> 
+
+
+
